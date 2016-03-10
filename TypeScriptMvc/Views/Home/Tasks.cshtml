@@ -1,0 +1,28 @@
+﻿@model IEnumerable<TypeScriptMvc.Models.TaskDetails>
+@section Scripts{
+    <script src="~/Scripts/knockout-3.4.0.js"></script>
+    <script src="~/Scripts/typescript-list.js"></script>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<input type="hidden" id="serverJSON"
+       value="@Newtonsoft.Json.JsonConvert.SerializeObject(Model)" />
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Details</th>
+        <th>Starts</th>
+        <th>Ends</th>
+        <th></th>
+    </tr>
+    <tbody data-bind="foreach: tasks">
+        <tr>
+            <td data-bind="text: title"></td>
+            <td data-bind="text: details"></td>
+            <td data-bind="text: starts"></td>
+            <td data-bind="text: ends"></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
